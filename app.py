@@ -16,7 +16,7 @@ col1, col2 = st.columns(2)
 
     # Content in Column 1
 with col1:
-    st.header("Coustomer Characterstic ")
+    st.header("Customer Characteristics ")
  
 # Arrays for categorical features
 job_values = ['admin.', 'technician', 'services', 'management', 'retired', 'blue-collar', 'unemployed', 'entrepreneur', 'housemaid', 'unknown', 'self-employed', 'student']
@@ -29,7 +29,7 @@ contact_values = ['unknown', 'cellular', 'telephone']
 month_values = ['may', 'jun', 'jul', 'aug', 'oct', 'nov', 'dec', 'jan', 'feb', 'mar', 'apr', 'sep']
 poutcome_values = ['unknown', 'other', 'failure', 'success']
 
-      # Create user input dictionary
+      # Create a user-input dictionary
 user_input = {
     'age':  st.slider('Select Age Range', min_value=18, max_value=75, value=35),
     'job': st.selectbox('Select Job', job_values),
@@ -52,7 +52,7 @@ def predict_deposit(user_input, pipeline):
 
     user_input_pd=pd.DataFrame.from_dict(user_input,orient = 'index').T
     
-    # Make prediction using the pipeline
+    # Make predictions using the pipeline
     y_pred = pipeline.predict(user_input_pd.head(1))
 
     deposit = 'Will not Subscribe'
@@ -73,12 +73,12 @@ with st.sidebar:
     st.markdown(""" The ability to accurately predict customer tendencies in subscribing to a term deposit holds immense significance for banks. 
     \nBy leveraging machine learning techniques, banks can gain valuable insights into customer behavior and preferences, enabling them to make informed decisions regarding their marketing strategies and product offerings. 
     \nThis predictive capability allows banks to optimize their resources, tailor their communication efforts, and effectively allocate their marketing budgets, ultimately leading to improved customer acquisition, retention, and profitability. 
-    \nFurthermore, by identifying potential customers who are more likely to subscribe to a term deposit, banks can enhance their overall risk management and optimize their loan portfolios, thereby strengthening their financial stability and resilience.""")
-    st.markdown("""What is a Term Deposit? A Term deposit is a deposit that a bank or a financial institurion offers with a fixed rate (often better than just opening deposit account) in which your money will be returned back at a specific maturity time. For more information with regards to Term Deposits please click on this link from Investopedia """)
-st.markdown("""retired client has high interest on depositclient who has housing loan seems to be not interested much on deposit
-if pre campagin outcome that is poutcome=success then, there is high chance of client to show interest on deposit
-in month of March, September, October and December, client show high interest to deposit
-in month of may, records are high but client interst ratio is very less""")
+    \n Furthermore, by identifying potential customers who are more likely to subscribe to a term deposit, banks can enhance their overall risk management and optimize their loan portfolios, thereby strengthening their financial stability and resilience.""")
+    st.markdown("""What is a Term Deposit? A Term deposit is a deposit that a bank or a financial institution offers with a fixed rate (often better than just opening a deposit account) in which your money will be returned at a specific maturity time. For more information with regards to Term Deposits please click on this link from Investopedia """)
+st.markdown("""Retired client has high interest on deposit client who has housing loan seems to be not interested much on deposit
+if pre campaign outcome that is poutcome=success then, there is a high chance of client to show interest on deposit
+in March, September, October, and December, the client show high interest to deposit
+in the month of may, records are high but client interest ratio is very less""")
 
       # Content in Column 2
 # with col2:
